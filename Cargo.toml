@@ -1,0 +1,11 @@
+[package]
+name = "Advent_Of_Code_2025_"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+
+
+[workspace]
+members = ["day01"]
