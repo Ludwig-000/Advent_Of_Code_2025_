@@ -8,4 +8,4 @@ edition = "2024"
 
 
 [workspace]
-members = ["day01"]
+members = ["Day02","day01"]
