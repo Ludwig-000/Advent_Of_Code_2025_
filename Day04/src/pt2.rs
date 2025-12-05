@@ -7,9 +7,11 @@ pub fn run(input: &str)-> u64{
     let mut full: Vec<Vec<char>> = input.lines().map(|l| l.chars().collect()).collect();
 
     loop {
-        let cloned_full: Vec<Vec<char>> = full.clone();
-        
+        let mut has_something_changed= false;
 
+        let cloned_full: &[Vec<char>] = &full.clone();
+        
+        
 
         for col in 0..cloned_full.len() {
             for row in 0..cloned_full[0].len() {
@@ -42,12 +44,13 @@ pub fn run(input: &str)-> u64{
                 if count < 4{
                     full_count+=1;
                     full[col][row] = '.';
+                    has_something_changed = true;
                 }
                 
             }
         }
         
-        if cloned_full == full{
+        if !has_something_changed{
             break;
         }
 
@@ -57,7 +60,7 @@ pub fn run(input: &str)-> u64{
 
 
 
-pub fn safe_get(input: &Vec<Vec<char>>, col: i32, row: i32) -> char {
+pub fn safe_get(input: &[Vec<char>], col: i32, row: i32) -> char {
     if col < 0 { return '.'; }
     if row < 0 { return '.'; }
 
